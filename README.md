@@ -1,2 +1,2 @@
-# terraform-aws-git-flow-ecs
+# terraform-unit-test-runner
 .
