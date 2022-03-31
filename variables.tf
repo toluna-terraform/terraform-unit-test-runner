@@ -22,6 +22,7 @@ variable "environment_variables" {
 
 variable "environment_variables_parameter_store" {
  type = map(string)
+ default = {}  
 }
 
 variable "privileged_mode" { 
