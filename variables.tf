@@ -1,8 +1,7 @@
 variable "app_name" {
      type     = string
  }
- 
- 
+  
  variable "module_name" {
      type     = string
  }
@@ -23,10 +22,6 @@ variable "environment_variables" {
 
 variable "environment_variables_parameter_store" {
  type = map(string)
- default = {
- "ADO_USER" = "/app/ado_user"
- "ADO_PASSWORD" = "/app/ado_password"
- }
 }
 
 variable "privileged_mode" { 
