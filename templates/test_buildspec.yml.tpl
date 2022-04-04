@@ -16,8 +16,8 @@ phases:
       - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
       - yum -y install wget jq terraform consul 
       - export CONSUL_HTTP_ADDR=https://consul-cluster-test.consul.$CONSUL_PROJECT_ID.aws.hashicorp.cloud
-      - wget -nv https://go.dev/dl/go1.17.linux-amd64.tar.gz
-      - rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
+      - wget -nv https://go.dev/dl/go1.18.linux-amd64.tar.gz
+      - rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz
       - export PATH=$PATH:/usr/local/go/bin
       - export GOPATH=~/go
       - go get gotest.tools/gotestsum
