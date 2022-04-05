@@ -20,10 +20,15 @@ phases:
       - rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz
       - export PATH=$PATH:/usr/local/go/bin
       - export GOPATH=~/go
-      - go get gotest.tools/gotestsum
-      - sudo mv ~/go/bin/gotestsum /usr/local/bin
-      - go get github.com/boumenot/gocover-cobertura
-      - sudo mv ~/go/bin/gocover-cobertura /usr/local/bin
+      - export GOVERSION=go1.18.1
+      - export GO_INSTALL_DIR=/usr/local/go
+      - export GOROOT=$GO_INSTALL_DIR
+      - export GOPATH=/home/ec2-user/golang
+      - export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+      - export GO111MODULE="on"
+      - export GOSUMDB=off
+      - go install gotest.tools/gotestsum@latest
+      - go install github.com/boumenot/gocover-cobertura@latest
       - |
         cd $CODEBUILD_SRC_DIR/tests
         go mod init "${MODULE_PATH}"
