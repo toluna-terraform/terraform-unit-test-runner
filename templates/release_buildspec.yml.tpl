@@ -10,7 +10,6 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - yum -y install yum-utils
       - wget -O /usr/local/bin/semver https://raw.githubusercontent.com/toluna-terraform/scripts/master/release-management/semver
       - chmod +x /usr/local/bin/semver
   build:
