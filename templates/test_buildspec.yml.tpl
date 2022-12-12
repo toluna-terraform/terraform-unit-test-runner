@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    CONSUL_PROJECT_ID: "/infra/consul_project_id"
+    CONSUL_URL: "/infra/consul_url"
     CONSUL_HTTP_TOKEN: "/infra/consul_http_token"
     GITHUB_TOKEN: "/app/github_token"
 
@@ -15,7 +15,7 @@ phases:
       - yum -y install yum-utils
       - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
       - yum -y install wget jq terraform consul 
-      - export CONSUL_HTTP_ADDR=https://consul-cluster-test.consul.$CONSUL_PROJECT_ID.aws.hashicorp.cloud
+      - export CONSUL_HTTP_ADDR=https://$CONSUL_URL
       - wget -nv https://go.dev/dl/go1.18.linux-amd64.tar.gz
       - rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz
       - export PATH=$PATH:/usr/local/go/bin
